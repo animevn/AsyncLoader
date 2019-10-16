@@ -5,4 +5,5 @@
     <string name="bnText">Start Thread</string>
     <string name="thread2">Thread 2</string>
     <string name="thread3">Thread 3</string>
+    <string name="tvThreadRunning">Task is running</string>
 </resources>
