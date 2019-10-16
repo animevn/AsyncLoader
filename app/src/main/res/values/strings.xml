@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">AsyncLoaderMultiThreadDemo</string>
+    <string name="app_name">Test Thread Load</string>
+    <string name="thread1">Thread 1</string>
+    <string name="tvThread">Thread is waiting for order</string>
+    <string name="bnText">Start Thread</string>
+    <string name="thread2">Thread 2</string>
+    <string name="thread3">Thread 3</string>
 </resources>
