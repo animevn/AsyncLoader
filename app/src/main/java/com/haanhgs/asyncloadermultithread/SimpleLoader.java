@@ -8,6 +8,7 @@ import androidx.loader.content.AsyncTaskLoader;
 public class SimpleLoader extends AsyncTaskLoader<Integer>{
 
     private int seed;
+    private int duration;
 
     public SimpleLoader(@NonNull Context context, int seed) {
         super(context);
@@ -17,13 +18,13 @@ public class SimpleLoader extends AsyncTaskLoader<Integer>{
     @Override
     protected void onStartLoading() {
         super.onStartLoading();
+        duration = seed * 10;
         forceLoad();
     }
 
     @Nullable
     @Override
     public Integer loadInBackground() {
-        int duration = seed * 10;
         try{
             Thread.sleep(duration);
         }catch (InterruptedException e){
