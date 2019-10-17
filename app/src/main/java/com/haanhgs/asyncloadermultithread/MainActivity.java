@@ -6,11 +6,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.loader.app.LoaderManager;
 import androidx.loader.content.Loader;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import java.text.MessageFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity
         implements LoaderManager.LoaderCallbacks<Integer> {
@@ -24,6 +28,10 @@ public class MainActivity extends AppCompatActivity
     private TextView tvThread1;
     private TextView tvThread2;
     private TextView tvThread3;
+    private TextView textView1;
+    private TextView textView2;
+    private TextView textView3;
+    private Handler handler;
 
 
     private void initViews(){
@@ -36,6 +44,9 @@ public class MainActivity extends AppCompatActivity
         tvThread1 = findViewById(R.id.tvThread1);
         tvThread2 = findViewById(R.id.tvThread2);
         tvThread3 = findViewById(R.id.tvThread3);
+        textView1 = findViewById(R.id.textView1);
+        textView2 = findViewById(R.id.textView2);
+        textView3 = findViewById(R.id.textView3);
     }
 
     private void handleThread1(){
@@ -107,6 +118,21 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+    private void handleTextView(){
+        handler = new Handler(getMainLooper());
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                String date =
+                        new SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(new Date());
+                textView1.setText(date);
+                textView2.setText(date);
+                textView3.setText(date);
+                handler.postDelayed(this,1000);
+            }
+        }, 1);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -117,6 +143,19 @@ public class MainActivity extends AppCompatActivity
         handleThread1();
         handleThread2();
         handleThread3();
+        handleTextView();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        handler.removeCallbacksAndMessages(null);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        handleTextView();
     }
 
     @Override
@@ -131,6 +170,12 @@ public class MainActivity extends AppCompatActivity
         outState.putBoolean("thr3pbr", pbrThread3.isIndeterminate());
         outState.putBoolean("thr3bn", bnThread3.isEnabled());
         outState.putString("thr3text", tvThread3.getText().toString());
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        handler.removeCallbacksAndMessages(null);
     }
 
     @NonNull
