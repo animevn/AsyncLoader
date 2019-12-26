@@ -7,7 +7,7 @@ import androidx.loader.content.AsyncTaskLoader;
 
 public class SimpleLoader extends AsyncTaskLoader<Integer>{
 
-    private int seed;
+    private final int seed;
     private Integer duration;
 
     public SimpleLoader(@NonNull Context context, int seed) {
