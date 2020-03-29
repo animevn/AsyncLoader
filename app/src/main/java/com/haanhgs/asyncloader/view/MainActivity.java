@@ -5,9 +5,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
 import com.haanhgs.asyncloader.R;
-
 import java.text.MessageFormat;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
