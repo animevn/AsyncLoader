@@ -1,4 +1,4 @@
-package com.haanhgs.asyncloadermultithread;
+package com.haanhgs.asyncloader;
 
 import android.content.Context;
 
