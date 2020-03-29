@@ -2,9 +2,16 @@ package com.haanhgs.asyncloader.model;
 
 public class Model {
 
+    public static final String THREAD_WAIT = "Thread is waiting for order";
+    public static final String THREAD_RUN = "Task is running";
+
     private int progressThread1 = 0;
     private int progressThread2 = 0;
     private int progressThread3 = 0;
+
+    private int maxThread1 = 0;
+    private int maxThread2 = 0;
+    private int maxThread3 = 0;
 
     private String inforThread1 = "";
     private String inforThread2 = "";
@@ -84,5 +91,29 @@ public class Model {
 
     public void setThreadRunning3(boolean threadRunning3) {
         this.threadRunning3 = threadRunning3;
+    }
+
+    public int getMaxThread1() {
+        return maxThread1;
+    }
+
+    public void setMaxThread1(int maxThread1) {
+        this.maxThread1 = maxThread1;
+    }
+
+    public int getMaxThread2() {
+        return maxThread2;
+    }
+
+    public void setMaxThread2(int maxThread2) {
+        this.maxThread2 = maxThread2;
+    }
+
+    public int getMaxThread3() {
+        return maxThread3;
+    }
+
+    public void setMaxThread3(int maxThread3) {
+        this.maxThread3 = maxThread3;
     }
 }
