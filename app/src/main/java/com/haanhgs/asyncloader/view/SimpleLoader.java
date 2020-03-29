@@ -1,4 +1,4 @@
-package com.haanhgs.asyncloader;
+package com.haanhgs.asyncloader.view;
 
 import android.content.Context;
 import android.widget.ProgressBar;
